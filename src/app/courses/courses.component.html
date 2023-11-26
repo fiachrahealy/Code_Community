@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let course of courses" class="col-sm-2">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ course.title }}</h5>
+          <p class="card-text"><b>Level:</b> {{ course.level }}</p>
+          <p class="card-text"><b>Lessons:</b> {{ course.lessons.length }}</p>
+          <p class="card-text">
+            <fa-icon class="positive-star"
+              *ngFor="let i of counterPosStar(this.courseService.calculateCourseRating(course.ratings))"
+              [icon]="faStar"></fa-icon>
+            <fa-icon class="negative-star"
+              *ngFor="let i of counterNegStar(this.courseService.calculateCourseRating(course.ratings))"
+              [icon]="faStar"></fa-icon>&emsp;({{ course.ratings.length }})
+          </p>
+          <button *ngIf="!hasACourseRecord(course._id)" (click)="startCourse(course._id)"
+            class="btn btn-primary start-btn">Start&emsp;<fa-icon [icon]="faPlay"></fa-icon></button>
+          <button *ngIf="hasACourseRecord(course._id) && !hasCompletedCourse(course._id)"
+            (click)="resumeCourse(course._id)" class="btn btn-primary start-btn">Resume&emsp;<fa-icon
+              [icon]="faPlay"></fa-icon></button>
+          <button *ngIf="hasCompletedCourse(course._id)" (click)="resumeCourse(course._id)"
+            class="btn btn-primary start-btn">Restart&emsp;<fa-icon [icon]="faUndo"></fa-icon></button>
+          <button *ngIf="!hasACourseRecord(course._id)" [routerLink]="['edit', course._id]"
+            class="btn btn-primary edit-btn">Edit&emsp;<fa-icon [icon]="faPen"></fa-icon></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

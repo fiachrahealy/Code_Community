@@ -1,0 +1,105 @@
+.img {
+  border: 3px solid var(--dark-colour);
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.card {
+  padding-bottom: 40px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.course-title {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.text {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 20px;
+  margin-bottom: 0px !important;
+}
+
+.editor-row {
+  width: 83% !important;
+  margin: auto;
+  display: block;
+  margin-top: 20px;
+}
+
+
+.sub-btn {
+  font-size: 20px;
+  height: 50px;
+  margin-left: 10%;
+  width: 80%;
+}
+
+h5 {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.quiz {
+  padding: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 20px;
+  width: 80%;
+  border: 3px solid var(--dark-colour);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #EBEAEB;
+}
+
+input[type='radio']:after {
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: var(--dark-colour);
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+.quiz-text {
+  font-size: 16px;
+  padding: 10px;
+  margin-left: 20px;
+  margin-bottom: 0px !important;
+}
+
+.question {
+  margin-left: 0px;
+  font-weight: bold;
+  ;
+}

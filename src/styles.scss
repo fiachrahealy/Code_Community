@@ -1,0 +1,103 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+:root {
+  --light-colour: #c1a4d1;
+  --dark-colour: #3d1255;
+  --darkest-colour: #1A0127;
+}
+
+.btn {
+  background-color: var(--dark-colour);
+  color: white;
+  margin-top: 10px;
+  border: none !important;
+}
+
+.btn:hover {
+  background-color: var(--darkest-colour) !important;
+  border: none !important;
+  color: white !important;
+}
+
+.btn:active {
+  background-color: var(--darkest-colour) !important;
+  border: none !important;
+  color: white !important;
+}
+
+.btn:focus {
+  background-color: var(--darkest-colour) !important;
+  border: none !important;
+  color: white !important;
+}
+
+.form-control:focus {
+  outline: none !important;
+  border: 3px solid var(--dark-colour);
+}
+
+.form-control {
+  border: 3px solid var(--dark-colour);
+  padding: 15px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+html {
+  background-color: #EBEAEB;
+  display: block;
+}
+
+input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  text-align: center;
+  text-transform: capitalize;
+  padding: 10px;
+}
+
+.mat-menu-panel {
+  margin-top: 10px !important;
+}
+
+.card {
+  background-color: white;
+  padding: 10px;
+  border-top: thick solid var(--dark-colour);
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.edit-btn {
+  margin-left: 5px;
+}
+
+.card-title {
+  font-size: 22px;
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: var(--dark-colour);
+  align-items: center;
+}
+
+.ace_hidpi .ace_text-layer,
+.ace_hidpi .ace_gutter-layer,
+.ace_hidpi .ace_content,
+.ace_hidpi .ace_gutter {
+  padding-top: 10px !important;
+}
+
+.chat-dialog .mat-dialog-container {
+  padding: 0px !important;
+}
+
+.ace_gutter {
+  z-index: 0 !important;
+}

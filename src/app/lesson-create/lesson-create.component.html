@@ -1,0 +1,7 @@
+<button (click)="closeDialog()" class="close-btn"><fa-icon [icon]="faTimes"></fa-icon></button>
+<div class="lesson-form">
+  <h1>Create Lesson</h1>
+  <input [(ngModel)]="lessonTitle" type="text" class="form-control post-input" name="heading" placeholder="Lesson Title"
+    required>
+  <button class="btn sub-btn" (click)="createLesson()">Create Lesson</button>
+</div>

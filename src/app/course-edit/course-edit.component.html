@@ -1,0 +1,45 @@
+<div class="container" [hidden]="loading">
+  <div class="row">
+    <div class="col-sm-5">
+      <input [(ngModel)]="course.title" (ngModelChange)="this.titleChange()" type="text" class="form-control post-input"
+        name="heading" placeholder="Course Title" value="{{ course.title }}" required>
+    </div>
+    <div class="col-sm-7">
+      <button (click)="this.saveChanges()" class="btn sub-btn">Save&emsp;<fa-icon [icon]="faSave"></fa-icon></button>
+      <button (click)="this.unsavedChangesConfirm('../../')" class="btn sub-btn">Discard&emsp;<fa-icon
+          [icon]="faTrash"></fa-icon></button>
+      <button (click)="this.openHistory()" class="btn sub-btn">History&emsp;<fa-icon
+          [icon]="faHistory"></fa-icon></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 btn-col">
+      <button class="btn add-btn" (click)="openLessonCreateDialog()">New Lesson&emsp;<fa-icon
+          [icon]="faPlus"></fa-icon></button>
+    </div>
+  </div>
+  <div cdkDropList class="lesson-list" (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let lesson of course.lessons; let i = index" class="row draggable-row">
+      <div class="lesson" cdkDragBoundary=".lesson-list" cdkDragLockAxis="y" cdkDrag>
+        <div class="lesson-number">
+          {{ i + 1}}
+        </div>
+        <div class="lesson-title">
+          {{ lesson.title }}
+        </div>
+        <div class="lesson-btn">
+          <button cdkDragHandle class="btn small-btn arrow-btn"><fa-icon [icon]="faArrowsAlt"></fa-icon></button>
+        </div>
+        <div class="lesson-btn">
+          <button (click)="deleteLesson(i)" class="btn small-btn"><fa-icon [icon]="faTrash"></fa-icon></button>
+        </div>
+        <div class="lesson-btn">
+          <button *ngIf="showEditBtn(lesson._id)" class="btn small-btn"
+            (click)="this.unsavedChangesConfirm('courses/edit/'+course._id+'/'+lesson._id)"><fa-icon
+              [icon]="faPen"></fa-icon></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-loading [hidden]="!loading"></app-loading>

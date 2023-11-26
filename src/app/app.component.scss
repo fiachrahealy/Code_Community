@@ -1,0 +1,23 @@
+:host {
+  background-color: #EBEAEB;
+  display: block;
+}
+
+.sidebar {
+  padding: 0 !important;
+  height: 100vh;
+  z-index: 0;
+}
+
+.content-right {
+  margin-left: 16%;
+  margin-top: 75px;
+}
+
+.navbar {
+  z-index: 0;
+}
+
+.content-no-sidebar {
+  margin-top: 75px;
+}

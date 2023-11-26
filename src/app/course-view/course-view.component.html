@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="course-title">{{ course.title }}</h5>
+          <p class="card-text rating">
+            <b>Level:</b> {{ course.level }}
+          </p>
+          <p class="card-text rating">
+            <fa-icon class="positive-star"
+              *ngFor="let i of counterPosStar(this.courseService.calculateCourseRating(course.ratings))"
+              [icon]="faStar"></fa-icon>
+            <fa-icon class="negative-star"
+              *ngFor="let i of counterNegStar(this.courseService.calculateCourseRating(course.ratings))"
+              [icon]="faStar"></fa-icon>&emsp;({{ course.ratings.length }})
+          </p>
+          <button class="btn sub-btn" [routerLink]="['../../']">All Courses&emsp;<fa-icon
+              [icon]="faGraduationCap"></fa-icon></button>
+          <button class="btn sub-btn" (click)="openRatingDialog()">Rate Course&emsp;<fa-icon
+              [icon]="faStar"></fa-icon></button>
+          <button class="btn sub-btn" (click)="resetCourse()">Reset Course&emsp;<fa-icon
+              [icon]="faRotateLeft"></fa-icon></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <div *ngFor="let lesson of course.lessons; let i = index" class="row">
+        <a [routerLink]="[lesson._id]" *ngIf="isUnlocked(lesson._id)">
+          <div class="lesson">
+            <div class="lesson-number">
+              {{ i+1 }}
+            </div>
+            <div class="lesson-title">
+              {{ lesson.title }}
+            </div>
+          </div>
+        </a>
+        <a *ngIf="!isCompleted(lesson._id) && !isUnlocked(lesson._id)">
+          <div class="lesson locked-lesson">
+            <div class="lesson-number locked-lesson">
+              <fa-icon [icon]="faLock"></fa-icon>
+            </div>
+            <div class="lesson-title locked-lesson">
+              {{ lesson.title }}
+            </div>
+          </div>
+        </a>
+        <a *ngIf="isCompleted(lesson._id)">
+          <div class="lesson completed-lesson">
+            <div class="lesson-number completed-lesson">
+              <fa-icon [icon]="faCheck"></fa-icon>
+            </div>
+            <div class="lesson-title completed-lesson">
+              {{ lesson.title }}
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

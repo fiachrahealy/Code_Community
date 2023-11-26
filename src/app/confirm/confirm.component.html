@@ -1,0 +1,7 @@
+<button (click)="closeDialog()" class="close-btn"><fa-icon [icon]="faTimes"></fa-icon></button>
+<div class="content">
+  <h1>{{ this.data.heading }}</h1>
+  <p class="body-text">{{ this.data.body }}</p>
+  <button *ngIf="this.data.boxes" (click)="closeDialog()" class="btn sub-btn">No</button>
+  <button *ngIf="this.data.boxes" (click)="confirm()" class="btn sub-btn">Yes</button>
+</div>

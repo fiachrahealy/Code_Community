@@ -1,0 +1,51 @@
+.btn-table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 75px;
+}
+
+.btn-table td {
+  padding: 5px;
+}
+
+.theme-btn {
+  height: 50px;
+  width: 50px;
+  border: 5px white solid;
+}
+
+.theme-btn:hover {
+  border: 5px solid var(--light-colour);
+}
+
+.selected-theme-btn {
+  border: 5px var(--light-colour) solid;
+}
+
+.red-theme {
+  background-color: #AA3939;
+}
+
+.orange-theme {
+  background-color: #b85800;
+}
+
+.green-theme {
+  background-color: #466F19;
+}
+
+.blue-theme {
+  background-color: #28536C;
+}
+
+.purple-theme {
+  background-color: #3d1255;
+}
+
+.close-btn {
+  float: right;
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  color: var(--dark-colour);
+}

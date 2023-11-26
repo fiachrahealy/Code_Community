@@ -1,0 +1,226 @@
+<div class="container" [hidden]="loading">
+  <form #editLessonForm="ngForm">
+    <div class="row">
+      <div class="col-sm-7">
+        <input type="text" [(ngModel)]="lesson.title" (ngModelChange)="this.titleChange()"
+          class="form-control lesson-title-input" name="heading" placeholder="Lesson Title" value="{{ lesson.title }}"
+          required>
+      </div>
+      <div class="col-sm-5">
+        <button [disabled]="!editLessonForm.form.valid" (click)="this.saveChanges()"
+          class="btn sub-btn">Save&emsp;<fa-icon [icon]="faSave"></fa-icon></button>
+        <button (click)="this.unsavedChangesConfirm()" class="btn sub-btn">Discard&emsp;<fa-icon
+            [icon]="faTrash"></fa-icon></button>
+      </div>
+    </div>
+    <div cdkDropList class="drag-list" (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let chunk of lesson.chunks; let i = index" class="row draggable-row" cdkDragBoundary=".drag-list"
+        cdkDragLockAxis="y" cdkDrag>
+        <div class="col-sm-11" *ngIf="chunk.type === 1">
+          <div class="row">
+            <div class="col-sm-12">
+              <input [(ngModel)]="lesson.chunks[i].title" value="{{ lesson.chunks[i].title }}" name="title{{i}}"
+                type="text" class="form-control title-input" placeholder="Component Title (Not Shown to User)" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8">
+              <app-code-editor (editorDataEvent)="obtainDataFromEditor($event)" [index]="i"
+                [language]="lesson.chunks[i].language" [code]="lesson.chunks[i].code"></app-code-editor>
+            </div>
+            <div class="col-sm-4">
+              <table class="lang-table">
+                <tr>
+                  <td>
+                    <input [(ngModel)]="lesson.chunks[i].language" name="language{{i}}" type="radio"
+                      [value]="0">&emsp;<span class="com-text">C and C++</span>
+                  </td>
+                  <td>
+                    <input [(ngModel)]="lesson.chunks[i].language" name="language{{i}}" type="radio"
+                      [value]="1">&emsp;<span class="com-text">C#</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input [(ngModel)]="lesson.chunks[i].language" name="language{{i}}" type="radio"
+                      [value]="2">&emsp;<span class="com-text">CSS</span>
+                  </td>
+                  <td>
+                    <input [(ngModel)]="lesson.chunks[i].language" name="language{{i}}" type="radio"
+                      [value]="3">&emsp;<span class="com-text">HTML</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input [(ngModel)]="lesson.chunks[i].language" name="language{{i}}" type="radio"
+                      [value]="4">&emsp;<span class="com-text">Java</span>
+                  </td>
+                  <td>
+                    <input [(ngModel)]="lesson.chunks[i].language" name="language{{i}}" type="radio"
+                      [value]="5">&emsp;<span class="com-text">Javascript</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input [(ngModel)]="lesson.chunks[i].language" name="language{{i}}" type="radio"
+                      [value]="6">&emsp;<span class="com-text">PHP</span>
+                  </td>
+                  <td>
+                    <input [(ngModel)]="lesson.chunks[i].language" name="language{{i}}" type="radio"
+                      [value]="7">&emsp;<span class="com-text">Python</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input [(ngModel)]="lesson.chunks[i].language" name="language{{i}}" type="radio"
+                      [value]="8">&emsp;<span class="com-text">SQL</span>
+                  </td>
+                  <td>
+                    <input [(ngModel)]="lesson.chunks[i].language" name="language{{i}}" type="radio"
+                      [value]="9">&emsp;<span class="com-text">Typescript</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-11" *ngIf="chunk.type === 2">
+          <div class="row">
+            <div class="col-sm-12">
+              <input [(ngModel)]="lesson.chunks[i].title" value="{{ lesson.chunks[i].title }}" name="title{{i}}"
+                type="text" class="form-control title-input" placeholder="Component Title (Not Shown to User)" required>
+            </div>
+          </div>
+          <div class="row" *ngIf="lesson.chunks[i].file !== ''">
+            <div class="col-sm-6">
+              <img class="image" src="{{ lesson.chunks[i].file }}">
+            </div>
+            <div class="col-sm-6">
+              <input type="text" id="image{{i}}" class="form-control avatar-input" value="{{ lesson.chunks[i].file }}"
+                placeholder="Image Filepath" disabled>
+              <label class="btn upload-file-btn"><input accept=".jpg, .png, .jpeg" (change)="fileUpload($event, i)"
+                  id="file-upload{{i}}" type="file" required />Upload</label>
+            </div>
+          </div>
+          <div class="row" *ngIf="lesson.chunks[i].file === ''">
+            <div class="col-sm-12">
+              <input type="text" id="image{{i}}" class="form-control avatar-input" placeholder="Image Filepath"
+                disabled>
+              <label class="btn upload-file-btn"><input accept=".jpg, .png, .jpeg" (change)="fileUpload($event, i)"
+                  id="file-upload{{i}}" type="file" required />Upload</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-11" *ngIf="chunk.type === 3">
+          <div class="row">
+            <div class="col-sm-12">
+              <input [(ngModel)]="lesson.chunks[i].title" value="{{ lesson.chunks[i].title }}" name="title{{i}}"
+                type="text" class="form-control title-input" placeholder="Component Title (Not Shown to User)" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10">
+              <textarea type="text"
+                [ngStyle]="{'font-size': lesson.chunks[i].fontSize+'px', 'padding': lesson.chunks[i].fontSize*0.7+'px'}"
+                [(ngModel)]="lesson.chunks[i].text" name="text{{i}}" id="text{{i}}" class="form-control text-input"
+                placeholder="Text" required></textarea>
+            </div>
+            <div class="col-sm-2">
+              <span class="com-text font-size-text">Font Size:</span><br>
+              <select [(ngModel)]="lesson.chunks[i].fontSize" name="fontsize" class="dropdown">
+                <option [value]="14">14px</option>
+                <option [value]="18">18px</option>
+                <option [value]="20">20px</option>
+                <option [value]="24">24px</option>
+                <option [value]="28">28px</option>
+                <option [value]="30">30px</option>
+                <option [value]="34">34px</option>
+                <option [value]="38">38px</option>
+                <option [value]="40">40px</option>
+                <option [value]="44">44px</option>
+                <option [value]="48">48px</option>
+                <option [value]="50">50px</option>
+                <option [value]="54">54px</option>
+                <option [value]="58">58px</option>
+                <option [value]="60">60px</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-11" *ngIf="chunk.type === 4">
+          <div class="row">
+            <div class="col-sm-12">
+              <input [(ngModel)]="lesson.chunks[i].title" value="{{ lesson.chunks[i].title }}" name="title{{i}}"
+                type="text" class="form-control title-input" placeholder="Component Title (Not Shown to User)" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <input type="text" [(ngModel)]="lesson.chunks[i].question" class="form-control quiz-input"
+                placeholder="Question" required>
+              <table class="answers-table">
+                <tr>
+                  <td>
+                    <input [(ngModel)]="lesson.chunks[i].correctAnswer" name="answer{{i}}" type="radio" value="A">
+                  </td>
+                  <td>
+                    <input type="text" [(ngModel)]="lesson.chunks[i].answers[0]" class="form-control quiz-input"
+                      placeholder="Answer A" required>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input [(ngModel)]="lesson.chunks[i].correctAnswer" name="answer{{i}}" type="radio" value="B">
+                  </td>
+                  <td>
+                    <input type="text" [(ngModel)]="lesson.chunks[i].answers[1]" class="form-control quiz-input"
+                      placeholder="Answer B" required>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input [(ngModel)]="lesson.chunks[i].correctAnswer" name="answer{{i}}" type="radio" value="C">
+                  </td>
+                  <td>
+                    <input type="text" [(ngModel)]="lesson.chunks[i].answers[2]" class="form-control quiz-input"
+                      placeholder="Answer C" required>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input [(ngModel)]="lesson.chunks[i].correctAnswer" name="answer{{i}}" type="radio" value="D">
+                  </td>
+                  <td>
+                    <input type="text" [(ngModel)]="lesson.chunks[i].answers[3]" class="form-control quiz-input"
+                      placeholder="Answer D" required>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-1">
+          <div class="btn small-btn arrow-btn" cdkDragHandle><fa-icon [icon]="faArrowsAlt"></fa-icon></div>
+          <button class="btn small-btn" (click)="deleteChunk(i)"><fa-icon [icon]="faTrash"></fa-icon></button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 btn-col">
+        <button type="button" class="btn add-btn" (click)="addComponent(1)"><fa-icon [icon]="faCode"></fa-icon></button>
+      </div>
+      <div class="col-sm-3 btn-col">
+        <button type="button" class="btn add-btn" (click)="addComponent(2)"><fa-icon
+            [icon]="faImage"></fa-icon></button>
+      </div>
+      <div class="col-sm-3 btn-col">
+        <button type="button" class="btn add-btn" (click)="addComponent(3)"><fa-icon [icon]="faFont"></fa-icon></button>
+      </div>
+      <div class="col-sm-3 btn-col">
+        <button type="button" class="btn add-btn" (click)="addComponent(4)"><fa-icon
+            [icon]="faQuestion"></fa-icon></button>
+      </div>
+    </div>
+  </form>
+</div>
+<app-loading [hidden]="!loading"></app-loading>

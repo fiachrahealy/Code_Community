@@ -1,0 +1,43 @@
+<nav class="navbar navbar-light">
+  <a class="navbar-brand" routerLink="/courses">CodeCommunity</a>
+  <div class="navbar-items">
+    <button (click)="openColourDialog()" class="menu-btn"><fa-icon [icon]="faPaintBrush"></fa-icon></button>
+    <ng-container *ngIf="this.authService.isLoggedIn">
+      <button [hidden]="unopenedMessageUsers.length < 1" (click)="openMessagesDialog()" class="menu-btn"><span
+          [hidden]="!showMessageNotification"><fa-icon [icon]="faEnvelope"></fa-icon></span><span
+          [hidden]="showMessageNotification"><fa-icon [ngStyle]="{'visibility': 'hidden'}"
+            [icon]="faEnvelope"></fa-icon></span></button>
+      <button [hidden]="unopenedMessageUsers.length > 0" (click)="openMessagesDialog()" class="menu-btn"><fa-icon
+          [icon]="faEnvelope"></fa-icon></button>
+      <button [hidden]="friendRequestUsers.length > 0" (click)="openFRDialog()" class="menu-btn"><fa-icon
+          [icon]="faUserPlus"></fa-icon></button>
+      <button [hidden]="friendRequestUsers.length < 1" (click)="openFRDialog()" class="menu-btn"><span
+          [hidden]="!showFRNotification"><fa-icon [icon]="faUserPlus"></fa-icon></span><span
+          [hidden]="showFRNotification"><fa-icon [ngStyle]="{'visibility': 'hidden'}"
+            [icon]="faUserPlus"></fa-icon></span></button>
+      <button [ngStyle]="{'background-image': 'url(' + user.avatar + ')'}" [matMenuTriggerFor]="userDrop"
+        class="menu-btn profile-btn"><fa-icon [ngStyle]="{'visibility': 'hidden'}" [icon]="faUser"></fa-icon></button>
+      <mat-menu #userDrop="matMenu">
+        <table>
+          <tr>
+            <td>
+              <p class="username">@{{ user.username }}</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button (click)="navigateToProfile()" class="btn nav-drop-btn">My Profile&emsp;<fa-icon
+                  [icon]="faAddressCard"></fa-icon></button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button (click)="this.authService.signOut()" class="btn nav-drop-btn">Log Out&emsp;<fa-icon
+                  [icon]="faSignOutAlt"></fa-icon></button>
+            </td>
+          </tr>
+        </table>
+      </mat-menu>
+    </ng-container>
+  </div>
+</nav>

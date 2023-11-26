@@ -1,0 +1,54 @@
+.btn-table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 35px;
+}
+
+.btn-table tr {
+  border-top: 3px var(--dark-colour) solid;
+  border-bottom: 3px var(--dark-colour) solid;
+}
+
+.username-td {
+  padding: 20px;
+  width: 300px;
+  font-size: 25px;
+}
+
+.none-td {
+  padding: 20px;
+  width: 300px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.avatar-td {
+  padding: 5px;
+  width: 100px;
+}
+
+.close-btn {
+  float: right;
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  color: var(--dark-colour);
+}
+
+img.avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  float: left;
+  border: 3px var(--dark-colour) solid;
+}
+
+.respond-btn {
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  color: white;
+  background-color: var(--dark-colour);
+  margin: 10px;
+  font-size: 15px
+}

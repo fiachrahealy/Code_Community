@@ -1,0 +1,24 @@
+<button (click)="closeDialog()" class="close-btn"><fa-icon [icon]="faTimes"></fa-icon></button>
+<table class="btn-table">
+  <tr *ngFor="let fr of friendRequestUsers">
+    <td class="avatar-td">
+      <img class="avatar" src="{{ fr.avatar }}">
+    </td>
+    <td class="username-td">
+      @{{ fr.username }}
+    </td>
+    <td>
+      <button (click)="this.deleteFriendRequest(fr._id, user._id)" class="btn respond-btn"><fa-icon
+          [icon]="faXmark"></fa-icon></button>
+    </td>
+    <td>
+      <button (click)="this.addFriend(fr._id, user._id)" class="btn respond-btn"><fa-icon
+          [icon]="faCheck"></fa-icon></button>
+    </td>
+  </tr>
+  <tr *ngIf="friendRequestUsers.length < 1">
+    <td class="none-td">
+      None to show!
+    </td>
+  </tr>
+</table>

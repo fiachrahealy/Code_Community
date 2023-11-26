@@ -1,0 +1,36 @@
+.sidebar {
+  background-color: #282628;
+  width: 100%;
+  height: 100%;
+  padding-top: 95px;
+}
+
+.sidebar-row {
+  margin: 0 !important;
+}
+
+.sidebar-btn-main {
+  width: 100% !important;
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 15px;
+  margin: 0;
+  font-size: 20px;
+}
+
+.sidebar-btn-main:hover {
+  background-color: #EBEAEB;
+  color: black;
+}
+
+.selected-sidebar-btn-main {
+  background-color: #EBEAEB !important;
+  color: black !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.profile-row {
+  margin-top: 55vh !important;
+}

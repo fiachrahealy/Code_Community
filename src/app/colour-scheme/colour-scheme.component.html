@@ -1,0 +1,25 @@
+<button (click)="closeDialog()" class="close-btn"><fa-icon [icon]="faTimes"></fa-icon></button>
+<table class="btn-table">
+  <tr>
+    <td>
+      <button (click)="this.colourSchemeService.changeColourScheme(1)"
+        [ngClass]="this.colourSchemeService.getColourScheme() === 1 ? 'theme-btn red-theme selected-theme-btn' : 'theme-btn red-theme'"></button>
+    </td>
+    <td>
+      <button (click)="this.colourSchemeService.changeColourScheme(2)"
+        [ngClass]="this.colourSchemeService.getColourScheme() === 2 ? 'theme-btn orange-theme selected-theme-btn' : 'theme-btn orange-theme'"></button>
+    </td>
+    <td>
+      <button (click)="this.colourSchemeService.changeColourScheme(3)"
+        [ngClass]="this.colourSchemeService.getColourScheme() === 3 ? 'theme-btn green-theme selected-theme-btn' : 'theme-btn green-theme'"></button>
+    </td>
+    <td>
+      <button (click)="this.colourSchemeService.changeColourScheme(4)"
+        [ngClass]="this.colourSchemeService.getColourScheme() === 4 ? 'theme-btn blue-theme selected-theme-btn' : 'theme-btn blue-theme'"></button>
+    </td>
+    <td>
+      <button (click)="this.colourSchemeService.changeColourScheme(5)"
+        [ngClass]="this.colourSchemeService.getColourScheme() === 5 ? 'theme-btn purple-theme selected-theme-btn' : 'theme-btn purple-theme'"></button>
+    </td>
+  </tr>
+</table>

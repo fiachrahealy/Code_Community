@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form (ngSubmit)="writePost()">
+        <input [(ngModel)]="post.title" type="text" class="form-control post-input" name="heading"
+          placeholder="Post Heading" required>
+        <textarea [(ngModel)]="post.body" type="text" rows="4" cols="50" class="form-control post-input" name="body"
+          placeholder="Post Body" required></textarea>
+        <button type="submit" class="post-btn btn">Write Post&emsp;<fa-icon [icon]="faPen"></fa-icon></button>
+      </form>
+    </div>
+  </div>
+  <div class="row" *ngFor="let post of posts">
+    <div class="col-sm-12">
+      <div class="card post">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-2">
+              <img class="profile-img" src="{{ post.user.avatar }}">
+              <p [routerLink]="['../people', post.user.username]" class="card-text username-text">
+                @{{ post.user.username }}
+              </p>
+            </div>
+            <div class="col-sm-9">
+              <h5 class="card-title">{{ post.title }}</h5>
+              <p class="card-text">
+                {{ post.body }}
+              </p>
+            </div>
+            <div class="col-sm-1">
+              <p class="card-text date-text">
+                {{ post.timestamp | date: 'd/M/yy' }}
+              </p>
+              <p class="card-text post-icon">
+                <fa-icon *ngIf="post.type === 1" [icon]="faPen"></fa-icon>
+                <fa-icon *ngIf="post.type === 2" [icon]="faGraduationCap"></fa-icon>
+                <fa-icon *ngIf="post.type === 3" [icon]="faTrophy"></fa-icon>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

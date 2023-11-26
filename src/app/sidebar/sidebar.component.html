@@ -1,0 +1,22 @@
+<div class="sidebar">
+  <div class="row sidebar-row">
+    <button [routerLink]="['/courses']" class="sidebar-btn-main"
+      [ngClass]="this.router.url.indexOf('/courses') > -1 ? 'sidebar-btn-main selected-sidebar-btn-main' : 'sidebar-btn-main'">Courses&emsp;<fa-icon
+        [icon]="faGraduationCap"></fa-icon></button>
+  </div>
+  <div class="row sidebar-row">
+    <button [routerLink]="['/newsfeed']" class="sidebar-btn-main"
+      [ngClass]="this.router.url === '/newsfeed' ? 'sidebar-btn-main selected-sidebar-btn-main' : 'sidebar-btn-main'">Newsfeed&emsp;<fa-icon
+        [icon]="faNewspaper"></fa-icon></button>
+  </div>
+  <div class="row sidebar-row">
+    <button [routerLink]="['/leaderboards']" class="sidebar-btn-main"
+      [ngClass]="this.router.url === '/leaderboards' ? 'sidebar-btn-main selected-sidebar-btn-main' : 'sidebar-btn-main'">Leaderboards&emsp;<fa-icon
+        [icon]="faCrown"></fa-icon></button>
+  </div>
+  <div class="row sidebar-row">
+    <button [routerLink]="['/people']" class="sidebar-btn-main"
+      [ngClass]="this.router.url.indexOf('/people') > -1  ? 'sidebar-btn-main selected-sidebar-btn-main' : 'sidebar-btn-main'">People&emsp;<fa-icon
+        [icon]="faUsers"></fa-icon></button>
+  </div>
+</div>

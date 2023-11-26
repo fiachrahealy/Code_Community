@@ -1,0 +1,28 @@
+.leaderboard {
+  margin-top: 50px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.table td {
+  text-align: center;
+  font-size: 18px;
+  border-bottom: solid 2px var(--dark-colour) !important;
+}
+
+.table th {
+  text-align: center;
+  font-size: 18px;
+  border-bottom: none !important;
+  border-bottom: solid 2px var(--dark-colour) !important;
+}
+
+.leaderboard-title {
+  margin-left: 20px;
+}
+
+.username:hover {
+  cursor: pointer;
+  color: var(--dark-colour);
+  font-weight: bold;
+}

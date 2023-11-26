@@ -1,0 +1,38 @@
+<div [hidden]="loading" class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h2 class="form-signin-heading">Log In</h2>
+      <form #loginForm="ngForm" class="form-signin">
+        <h3 class="form-error" id="login-error">{{ loginError }}</h3>
+        <input type="text" id="inputUser" class="form-control" [(ngModel)]="userLogin.username" name="username"
+          placeholder="Email Address" required>
+        <input type="password" id="inputPassword" class="form-control" [(ngModel)]="userLogin.password" name="password"
+          placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" [disabled]="!loginForm.form.valid" type="button"
+          (click)="this.signIn(userLogin.username, userLogin.password)">Log In</button>
+      </form>
+    </div>
+    <div class="col-sm-6">
+      <h2 class="form-signin-heading">Sign Up</h2>
+      <form class="form-signin" (ngSubmit)="signUp()" #signupForm="ngForm" enctype="multipart/form-data">
+        <h3 class="form-error" id="signup-error">{{ signupError }}</h3>
+        <input type="text" [(ngModel)]="userSignup.username" name="username" id="username" class="form-control"
+          placeholder="Username" required>
+        <input name="avatarFile" type="text" id="avatar" class="form-control avatar-input" placeholder="Avatar"
+          disabled>
+        <label class="btn upload-file-btn"><input name="avatar" [(ngModel)]="userSignup.avatar"
+            accept=".jpg, .png, .jpeg" (change)="fileUpload($event)" id="file-upload" type="file" required />
+          Upload File</label>
+        <input type="email" [(ngModel)]="userSignup.email" name="email" id="email" class="form-control"
+          placeholder="Email Address" required>
+        <input type="password" [(ngModel)]="userSignup.password" name="passwords" id="pword" class="form-control"
+          placeholder="Password" required>
+        <input type="password" [(ngModel)]="userSignup.cpassword" id="cpword" class="form-control" name="cpword"
+          placeholder="Re-Type Password" required>
+        <button class="btn btn-lg btn-primary btn-block" [disabled]="!signupForm.form.valid" type="submit">
+          Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>
+<app-loading [hidden]="!loading"></app-loading>

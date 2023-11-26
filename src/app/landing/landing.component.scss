@@ -1,0 +1,40 @@
+.form-error {
+  margin: 0;
+  font-size: 12px;
+  color: red;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.avatar-input {
+  width: 70% !important;
+  display: inline !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.upload-file-btn {
+  margin-top: 0 !important;
+  width: 25%;
+  margin-left: 3%;
+}
+
+.upload-file-btn:hover {
+  color: white !important;
+}
+
+.spinner {
+  margin-top: 50px !important;
+  margin: auto;
+}

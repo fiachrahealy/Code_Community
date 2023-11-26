@@ -1,0 +1,92 @@
+.card {
+  padding-bottom: 20px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.course-title {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.sub-btn {
+  font-size: 20px;
+  height: 50px;
+  margin-left: 10%;
+  width: 80%;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.rating {
+  text-align: center;
+}
+
+.lesson {
+  background-color: white;
+  width: 100%;
+  height: 75px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.lesson-number {
+  background-color: var(--dark-colour);
+  height: 100%;
+  color: white;
+  width: 10%;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+  padding-top: 18px;
+  text-align: center;
+}
+
+.lesson-title {
+  width: 90%;
+  float: right;
+  height: 100%;
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 18px;
+  text-align: center;
+}
+
+.lesson-title:hover {
+  background-color: var(--dark-colour);
+  color: white;
+  cursor: pointer;
+}
+
+.locked-lesson {
+  background-color: #4d4b4d;
+  color: rgb(177, 177, 177);
+
+}
+
+.locked-lesson:hover {
+  background-color: #4d4b4d;
+  color: rgb(177, 177, 177);
+  cursor: auto;
+}
+
+.completed-lesson {
+  background-color: var(--dark-colour);
+  color: white;
+
+}
+
+.completed-lesson:hover {
+  cursor: auto;
+}
+
+.positive-star {
+  color: var(--dark-colour);
+}
+
+.negative-star {
+  color: #d2d2d2;
+}

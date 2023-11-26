@@ -1,0 +1,143 @@
+.chat {
+  background-color: white !important;
+  height: 600px;
+  border-top: thick solid var(--dark-colour);
+}
+
+.message-input {
+  padding: 20px;
+}
+
+.post-btn {
+  height: 100%;
+  padding: 12px;
+  width: 90%;
+}
+
+.post-btn:hover {
+  color: white;
+}
+
+.post-btn-col {
+  padding-right: 0 !important;
+  padding-left: 5px !important;
+}
+
+.friends-list {
+  width: 100%;
+}
+
+.friend-btn {
+  width: 100%;
+  border-bottom: 5px white solid;
+  height: 75px;
+  background-color: var(--dark-colour);
+  color: white;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.friend-avatar {
+  height: 50px;
+  width: 50px;
+  border: 5px white solid;
+  border-radius: 50%;
+}
+
+.friend-btn:hover {
+  background-color: var(--darkest-colour);
+}
+
+.chat-heading {
+  font-size: 35px;
+  margin-left: 10px;
+  margin-top: 25px;
+  width: 60%;
+  float: left;
+}
+
+.chat-heading:hover {
+  cursor: pointer;
+  color: var(--dark-colour);
+}
+
+.chat-head {
+  width: 100%;
+  height: 90px;
+  border-bottom: 2px var(--dark-colour) solid;
+  position: sticky;
+}
+
+.chat-body {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow: scroll;
+  border-bottom: 2px var(--dark-colour) solid;
+  background-color: #EBEAEB;
+}
+
+.chat-section {
+  width: 100%;
+  margin: 0px !important;
+}
+
+.chat-bubble {
+  min-height: 30px;
+  max-width: 500px;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 15px;
+  font-size: 15px;
+}
+
+.receiver {
+  background-color: #282628;
+  float: left;
+}
+
+.sender {
+  background-color: var(--dark-colour);
+  float: right;
+}
+
+.selected-friend-btn {
+  background-color: var(--darkest-colour);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.container {
+  width: 100% !important;
+  padding: 0px !important;
+  ;
+}
+
+.send-row {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  padding-top: 5px !important;
+  margin: 0px !important;
+}
+
+.close-btn {
+  float: right;
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  color: var(--dark-colour);
+  padding: 25px;
+}
+
+img.avatar {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  float: left;
+  margin: 10px;
+  margin-left: 30px;
+  border: 3px var(--dark-colour) solid;
+}

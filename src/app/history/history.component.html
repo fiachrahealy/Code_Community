@@ -1,0 +1,140 @@
+<button (click)="closeDialog()" class="close-btn"><fa-icon [icon]="faTimes"></fa-icon></button>
+<div [hidden]="loading" class="content">
+  <h1>{{ this.course.title }} Contribution History</h1>
+  <div class="history">
+    <table class="history-table">
+      <ng-container *ngFor="let record of records">
+        <tr *ngIf="record.typeOfRecord === 1 && record.typeOfEdit === 1">
+          <td>
+            <span class="head-text">{{ record.timestamp | date: 'MMM d, y' }}</span><br><span class="sub-text">{{
+              record.timestamp | date: 'h:mm a' }}</span>
+          </td>
+          <td>
+            <div class="icon"><fa-icon [icon]="faPen"></fa-icon></div>
+          </td>
+          <td>
+            <span class="head-text">@{{ record.user.username }} changed the course title</span><br><span
+              class="sub-text">The title was changed from <span class="title">{{ record.previousTitle }}</span> to <span
+                class="title">{{ record.newTitle }}</span> </span>
+          </td>
+        </tr>
+        <tr *ngIf="record.typeOfRecord === 1 && record.typeOfEdit === 2">
+          <td>
+            <span class="head-text">{{ record.timestamp | date: 'MMM d, y' }}</span><br><span class="sub-text">{{
+              record.timestamp | date: 'h:mm a' }}</span>
+          </td>
+          <td>
+            <div class="icon"><fa-icon [icon]="faPlus"></fa-icon></div>
+          </td>
+          <td>
+            <span class="head-text">@{{ record.user.username }} added a lesson</span><br><span class="sub-text"><span
+                class="title">{{ record.lessonAdded.title }}</span> was added</span>
+          </td>
+        </tr>
+        <tr *ngIf="record.typeOfRecord === 1 && record.typeOfEdit === 3">
+          <td>
+            <span class="head-text">{{ record.timestamp | date: 'MMM d, y' }}</span><br><span class="sub-text">{{
+              record.timestamp | date: 'h:mm a' }}</span>
+          </td>
+          <td>
+            <div class="icon"><fa-icon [icon]="faTrash"></fa-icon></div>
+          </td>
+          <td>
+            <span class="head-text">@{{ record.user.username }} removed a lesson</span><br><span class="sub-text"><span
+                class="title">{{ record.lessonRemoved.title }}</span> was removed</span>
+          </td>
+        </tr>
+        <tr *ngIf="record.typeOfRecord === 1 && record.typeOfEdit === 4">
+          <td>
+            <span class="head-text">{{ record.timestamp | date: 'MMM d, y' }}</span><br><span class="sub-text">{{
+              record.timestamp | date: 'h:mm a' }}</span>
+          </td>
+          <td>
+            <div class="icon"><fa-icon [icon]="faBars"></fa-icon></div>
+          </td>
+          <td>
+            <span class="head-text">@{{ record.user.username }} re-ordered the lessons</span><br><span
+              class="sub-text">The lessons were re-ordered</span>
+          </td>
+        </tr>
+        <tr *ngIf="record.typeOfRecord === 2 && record.typeOfEdit === 1">
+          <td>
+            <span class="head-text">{{ record.timestamp | date: 'MMM d, y' }}</span><br><span class="sub-text">{{
+              record.timestamp | date: 'h:mm a' }}</span>
+          </td>
+          <td>
+            <div class="icon"><fa-icon [icon]="faPen"></fa-icon></div>
+          </td>
+          <td>
+            <span class="head-text">@{{ record.user.username }} changed a lesson title</span><br><span
+              class="sub-text">The title was changed from <span class="title">{{ record.previousTitle }}</span> to <span
+                class="title">{{ record.newTitle }}</span></span>
+          </td>
+        </tr>
+        <tr *ngIf="record.typeOfRecord === 2 && record.typeOfEdit === 2">
+          <td>
+            <span class="head-text">{{ record.timestamp | date: 'MMM d, y' }}</span><br><span class="sub-text">{{
+              record.timestamp | date: 'h:mm a' }}</span>
+          </td>
+          <td>
+            <div class="icon"><fa-icon [icon]="faPlus"></fa-icon></div>
+          </td>
+          <td>
+            <span class="head-text">@{{ record.user.username }} added content to a lesson</span><br><span
+              class="sub-text">The {{ record.chunkAdded.type === 1 ? 'code' : '' }}{{ record.chunkAdded.type === 2 ?
+              'image' : '' }}{{ record.chunkAdded.type === 3 ? 'text' : '' }}{{ record.chunkAdded.type === 4 ? 'quiz' :
+              '' }} <span class="title">{{ record.chunkAdded.title }}</span> was added to <span class="title">{{
+                record.lesson.title }}</span></span>
+          </td>
+        </tr>
+        <tr *ngIf="record.typeOfRecord === 2 && record.typeOfEdit === 3">
+          <td>
+            <span class="head-text">{{ record.timestamp | date: 'MMM d, y' }}</span><br><span class="sub-text">{{
+              record.timestamp | date: 'h:mm a' }}</span>
+          </td>
+          <td>
+            <div class="icon"><fa-icon [icon]="faTrash"></fa-icon></div>
+          </td>
+          <td>
+            <span class="head-text">@{{ record.user.username }} removed content from a lesson</span><br><span
+              class="sub-text">The {{ record.chunkRemoved.type === 1 ? 'code' : '' }}{{ record.chunkRemoved.type === 2 ?
+              'image' : '' }}{{ record.chunkRemoved.type === 3 ? 'text' : '' }}{{ record.chunkRemoved.type === 4 ?
+              'quiz' : '' }} <span class="title">{{ record.chunkRemoved.title }}</span> was removed from <span
+                class="title">{{ record.lesson.title }}</span></span>
+          </td>
+        </tr>
+        <tr *ngIf="record.typeOfRecord === 2 && record.typeOfEdit === 4">
+          <td>
+            <span class="head-text">{{ record.timestamp | date: 'MMM d, y' }}</span><br><span class="sub-text">{{
+              record.timestamp | date: 'h:mm a' }}</span>
+          </td>
+          <td>
+            <div class="icon"><fa-icon [icon]="faBars"></fa-icon></div>
+          </td>
+          <td>
+            <span class="head-text">@{{ record.user.username }} re-ordered the content of a lesson</span><br><span
+              class="sub-text">The content of <span class="title">{{ record.lesson.title }}</span> was
+              re-ordered"</span>
+          </td>
+        </tr>
+        <tr *ngIf="record.typeOfRecord === 2 && record.typeOfEdit === 5">
+          <td>
+            <span class="head-text">{{ record.timestamp | date: 'MMM d, y' }}</span><br><span class="sub-text">{{
+              record.timestamp | date: 'h:mm a' }}</span>
+          </td>
+          <td>
+            <div class="icon"><fa-icon [icon]="faPen"></fa-icon></div>
+          </td>
+          <td>
+            <span class="head-text">@{{ record.user.username }} changed the content of a lesson</span><br><span
+              class="sub-text">The {{ record.chunkEdited.type === 1 ? 'code' : '' }}{{ record.chunkEdited.type === 2 ?
+              'image' : '' }}{{ record.chunkEdited.type === 3 ? 'text' : '' }}{{ record.chunkEdited.type === 4 ? 'quiz'
+              : '' }} <span class="title">{{ record.chunkEdited.title }}</span> was edited in <span class="title">{{
+                record.lesson.title }}</span></span>
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+</div>
+<app-loading [hidden]="!loading"></app-loading>

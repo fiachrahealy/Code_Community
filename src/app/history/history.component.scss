@@ -1,0 +1,46 @@
+.close-btn {
+  float: right;
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  color: var(--dark-colour);
+}
+
+.history-table td {
+  padding: 10px;
+}
+
+.icon {
+  border-radius: 50%;
+  color: white;
+  background-color: var(--dark-colour);
+  font-size: 16px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head-text {
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.sub-text {
+  font-size: 16px;
+  color: grey;
+}
+
+.history {
+  overflow: auto;
+  height: 550px;
+}
+
+.title {
+  font-weight: 500;
+  font-style: italic;
+  color: var(--darkest-colour);
+}

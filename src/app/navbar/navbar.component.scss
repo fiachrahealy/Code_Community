@@ -1,0 +1,94 @@
+.navbar {
+  background-color: var(--dark-colour);
+  height: 75px;
+  border-radius: 0%;
+  margin-bottom: 0 !important;
+  z-index: 1;
+  width: 100%;
+  position: fixed;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 30px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.navbar-items {
+  color: white;
+  float: right;
+  margin-right: 20px;
+}
+
+.menu-btn {
+  height: 40px;
+  width: 40px;
+  margin: 15px;
+  border-radius: 50%;
+  border: 2px white solid;
+  background-color: white;
+  font-size: 20px;
+  color: var(--dark-colour);
+}
+
+.profile-btn {
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  background-position: left center;
+}
+
+.menu-btn:hover {
+  filter: brightness(50%);
+}
+
+.username {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 0px !important;
+  width: 150px;
+  text-align: center;
+}
+
+.nav-drop-btn {
+  margin-left: 10%;
+  width: 80%;
+}
+
+.nav-drop-btn:hover {
+  color: white;
+}
+
+.request-btn {
+  margin-top: 0 !important;
+  font-size: 12px;
+  width: 36px;
+}
+
+.request-btn:hover {
+  color: white;
+}
+
+.request-table {
+  margin: 10px;
+}
+
+.request-title {
+  font-size: 20px;
+}
+
+.request-table td {
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 10px;
+  border-bottom: 5px solid var(--dark-colour);
+}
+
+.request-table p {
+  margin-top: 10px;
+}

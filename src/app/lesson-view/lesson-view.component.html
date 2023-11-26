@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="course-title">{{ lesson.title }}</h5>
+          <button class="btn sub-btn" (click)="this.completeLesson()">Complete&emsp;<fa-icon
+              [icon]="faCheck"></fa-icon></button>
+          <button class="btn sub-btn" (click)="this.cancel()">Cancel&emsp;<fa-icon [icon]="faXmark"></fa-icon></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <div class="card">
+        <div class="card-body">
+          <div class="row" *ngFor="let chunk of lesson.chunks; let i = index">
+            <div class="col-sm-12" *ngIf="chunk.type === 1">
+              <div class="row editor-row">
+                <app-code-editor class="editor" [language]="chunk.language" [code]="chunk.code"></app-code-editor>
+              </div>
+            </div>
+            <div class="col-sm-12" *ngIf="chunk.type === 2">
+              <div class="row">
+                <img class="img" src="{{ chunk.file }}">
+              </div>
+            </div>
+            <div class="col-sm-12" *ngIf="chunk.type === 3">
+              <div class="row">
+                <p class="text" [ngStyle]="{'font-size': chunk.fontSize+'px'}">{{ chunk.text }}</p>
+              </div>
+            </div>
+            <div class="col-sm-12" *ngIf="chunk.type === 4">
+              <div class="row">
+                <div class="quiz">
+                  <p class="quiz-text question">{{ chunk.question }}</p>
+                  <table class="answers-table">
+                    <tr>
+                      <td>
+                        <input [(ngModel)]="quizAnswers[i]" name="answer{{i}}" type="radio" value="A">
+                      </td>
+                      <td>
+                        <p class="quiz-text">{{ chunk.answers[0] }}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input [(ngModel)]="quizAnswers[i]" name="answer{{i}}" type="radio" value="B">
+                      </td>
+                      <td>
+                        <p class="quiz-text">{{ chunk.answers[1] }}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input [(ngModel)]="quizAnswers[i]" name="answer{{i}}" type="radio" value="C">
+                      </td>
+                      <td>
+                        <p class="quiz-text">{{ chunk.answers[2] }}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input [(ngModel)]="quizAnswers[i]" name="answer{{i}}" type="radio" value="D">
+                      </td>
+                      <td>
+                        <p class="quiz-text">{{ chunk.answers[3] }}</p>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

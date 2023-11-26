@@ -1,0 +1,16 @@
+<button (click)="closeDialog()" class="close-btn"><fa-icon [icon]="faTimes"></fa-icon></button>
+<table class="btn-table">
+  <tr (click)="openMessagesDialog(user._id)" *ngFor="let user of friendUsers">
+    <td class="avatar-td">
+      <img class="avatar" src="{{ user.avatar }}">
+    </td>
+    <td class="username-td">
+      @{{ user.username }}&emsp;<fa-icon *ngIf="hasUnopenedMessage(user._id)" [icon]="faEnvelope"></fa-icon>
+    </td>
+  </tr>
+  <tr *ngIf="friendUsers.length < 1">
+    <td class="none-td">
+      None to show!
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+<div class="container-fluid app-content">
+  <div class="row">
+    <div *ngIf="loggedIn" class="col-sm-2 sidebar affix">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div [ngClass]="loggedIn ? 'col-sm-10 content-right' : 'col-sm-12 content-no-sidebar'">
+      <router-outlet (activate)="changeOfRoutes()"></router-outlet>
+    </div>
+  </div>
+</div>

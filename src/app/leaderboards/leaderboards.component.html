@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card leaderboard">
+        <div class="card-body">
+          <h5 class="card-title leaderboard-title">Top Learners</h5>
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Username</th>
+                <th>Learn XP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of learnLeaderboard.slice(0,10); let i = index;">
+                <th scope="row">{{ i + 1 }}</th>
+                <td [routerLink]="['../people',user.username]" class="username">@{{ user.username }}</td>
+                <td>{{ user.learnXP }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card leaderboard">
+        <div class="card-body">
+          <h5 class="card-title leaderboard-title">Top Contributors</h5>
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Username</th>
+                <th>Edit XP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of editLeaderboard.slice(0,10); let i = index;">
+                <th scope="row">{{ i + 1 }}</th>
+                <td [routerLink]="['../people',user.username]" class="username">@{{ user.username }}</td>
+                <td>{{ user.editXP }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
